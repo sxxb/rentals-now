@@ -1,45 +1,61 @@
 import { Link } from "react-router-dom";
 import ContactForm from "./Contactform";
-import Data from './Data'
+import Data from './Data';
+import { Suspense } from 'react';
+import VideoHeader from "./Videoheader";
+import Loading from "./Loading";
+
 
 export default function Home() {
     return (
         <>
         <main id="home" className="home">
             <section className="video-header">
-                <i>video background</i>
-                <h1>Rentals Now</h1>
-                <h2>Test & Measurement Solutions</h2>
-                <Link className="button-link" to="Contact">Get A Quote</Link>
+                <Suspense fallback={<Loading />}>
+                    <VideoHeader />
+                </Suspense>
+                <p>TODO: replace this video with one relevant to Wavecom Rentals</p>
+            </section>
+            <section className="about-rentals-now">
+                <h2>About Us</h2>
+                <p>
+                    Rentals Now is coming soon to provide you with affordable and reliable solutions for your test and measurement rental needs.
+                </p>
+                <p>
+                    Wavecom’s renowned range of portable appliance testers will be available for lease for AS/NZS 3760 testing, with a greater range of measurement equipment coming in the near future.
+                </p>
+                <p>
+                    With flexible terms, expert support, and competitive prices, Rentals Now will be your one stop shop for test and measurement solutions.
+                </p>
             </section>
             <section className="products-list">
                 <div><h2>Our Products</h2></div>
-                <div>
+                <div className="products-list-container">
                 {
                 Data.map(product => (
                     <div key={product.id} id={product.productcode} className="product-listing">
-                        <Link to={product.link}>
+                        <Link to={`/products/${product.link}`}>
                             <div className="product-listing-image">
                                 <img
                                 key={product.imageurl}
-                                src={product.imageurl || null}
+                                src={`../src/assets/img/products/${product.imageurl}` || null}
                                 />
                             </div>
                             <div className="product-listing-description">
-                                <h1>
+                                <h3>
                                     {product.name}
-                                </h1>
-                                <h2>
+                                </h3>
+                                <h4>
                                     {product.descriptionS}
-                                </h2>
+                                </h4>
                             </div>
                             <div className="product-listing-price">
-                                <h2>
+                                <h5>
                                     Available From 
-                                </h2>
-                                <h1>
+                                </h5>
+                                <h3>
                                     ${product.dailyprice}<sup>+GST</sup>
-                                </h1>
+                                </h3>
                             </div>
                         </Link>
                     </div>
@@ -49,11 +65,23 @@ export default function Home() {
             {/* <section className="productCategories">Product Categories</section> */}
             <section className="why-rentals-now">
                 <h2>Why Rent With Rentals Now?</h2>
-                <div>
-                    <p>We guarantee our products work.</p>
-                    <p>We have great prices.</p>
-                    <p>We will support you.</p>
-                </div>
+                <ul>
+                    <li>
+                        <h3>Top Quality Products</h3>
+                        We offer only the best products that are regularly serviced and calibrated to ensure they operate to the highest standards.
+                    </li>
+                    <li>
+                        <h3>Competitive Prices</h3>
+                        Our prices are extremely competitive, offering you the opportunity to use the highest quality test and measurement equipment without the price tag.
+                    </li>
+                    <li>
+                        <h3>Expert Support</h3>
+                        We can offer expert support and advice about all our products, to ensure you have the know-how to get your job done. 
+                    </li>
+                    <li>
+                        <h3></h3>
+                    </li>
+                </ul>
             </section>
             <section className="contact-us">
                 <h2>Contact Us</h2>

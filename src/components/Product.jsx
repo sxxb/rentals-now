@@ -42,7 +42,7 @@ export default function Product() {
             <div className="product-view-img">
                 <img
                 key={productDisplay.imageurl}
-                src={productDisplay.imageurl || null}
+                src={`../src/assets/img/products/${productDisplay.imageurl}` || null}
                 className="productImage"
                 />
             </div>
@@ -51,24 +51,6 @@ export default function Product() {
                     Available From ${productDisplay.dailyprice}<sup>+GST</sup>
                 </h2>
                 <h4>Daily Rate - Discounts available for longer terms.</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>${productDisplay.dailyprice}<sup>+GST</sup></th>
-                            <th>${productDisplay.weeklyprice}<sup>+GST</sup></th>
-                            <th>${productDisplay.fortnightlyprice}<sup>+GST</sup></th>
-                            <th>${productDisplay.monthlyprice}<sup>+GST</sup></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Same Day</td>
-                            <td>Weekly</td>
-                            <td>Fortnightly</td>
-                            <td>Monthly</td>
-                        </tr>
-                    </tbody>
-                </table>
                 <div className="contact-link button-link">
                     <a href="#contact-form">Enquire Now</a>
                 </div>

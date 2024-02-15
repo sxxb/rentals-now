@@ -13,7 +13,7 @@ export default function Header() {
                         <Link to="/products">Products</Link>
                     </li>
                     <li>
-                        <Link to="/Howitworks">How It Works</Link>
+                        <Link to="/How-It-Works">How It Works</Link>
                     </li>
                     <li>
                         <Link to="/contact">Contact Us</Link>
