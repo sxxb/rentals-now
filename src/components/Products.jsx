@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Data from './Data'
 
 export default function Products() {
-    // const { products } = useLoaderData();
     return(
         <main className="products">
             <h1>Products</h1>
@@ -14,19 +13,20 @@ export default function Products() {
                             <div className="product-listing-image">
                                 <img
                                 key={product.imageurl}
-                                src={product.imageurl || null}
+                                src={`../public/img/products/${product.imageurl}` || null}
                                 />
                             </div>
                             <div className="product-listing-description">
                                 <h1>
                                     {product.name}
                                 </h1>
-                                <h2>
-                                    {product.category}
-                                </h2>
                                 <h3>
-                                    {product.descriptionS}
+                                    {product.category}
                                 </h3>
+                                <h2>
+                                    {product.descriptionS}
+                                </h2>
+                                
                             </div>
                             <div className="product-listing-price">
                                 <h2>

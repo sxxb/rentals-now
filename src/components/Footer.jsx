@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import rentalsNowLogoAlt1 from '/public/img/logo/rentals-now-alt-1-logo-text-only.svg';
 
 export default function Footer() {
     return (
@@ -8,7 +7,7 @@ export default function Footer() {
             <section className="footer-top">
                 <div className="footer-top-quarter">
                     <div className="footer-logo-container">
-                        <img src={rentalsNowLogoAlt1} alt="Rentals Now" />
+                        <img src="/public/img/logo/rentals-now-alt-1-logo-text-only.svg" alt="Rentals Now" />
                     </div> 
                 </div>
                 <div className="footer-top-quarter">
@@ -20,7 +19,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a href="https://maps.app.goo.gl/b7qPSEQZRnftQnNYA" target="_blank">
-                                    257 Grange Road, Findon, SA 5023
+                                    257 Grange Road,<br /> Findon, SA 5023
                                 </a>
                             </li>
                             <li>
@@ -48,7 +47,7 @@ export default function Footer() {
                                 <Link to="/agreement">Rental Agreement</Link>
                             </li>
                             <li>
-                                <Link to="/Howitworks">How It Works</Link>
+                                <Link to="/How-It-Works">How It Works</Link>
                             </li>
                         </ul>
                     </nav>
@@ -78,19 +77,19 @@ export default function Footer() {
             </section>
             <section className="footer-bottom">
                 <ul>
-                    <li>
+                    <li id="footer-bottom-wavecom">
                         <a href="https://www.wavecom.com.au" target="_blank">Wavecom</a>
                     </li>
-                    <li>
+                    <li id="footer-bottom-winpats">
                         <a href="https://www.winpats.app" target="_blank">WinPATS</a>
                     </li>
-                    <li>
+                    <li id="footer-bottom-copyright">
                         <h5>&copy; {new Date().getFullYear()} Wavecom Pty. Ltd.</h5>
                     </li>
-                    <li>
+                    <li id="footer-bottom-calibrations">
                         <a href="https://www.wavecom.com.au/calibrations.php" target="_blank">Calibrations</a>
                     </li>
-                    <li>
+                    <li id="footer-bottom-rentals">
                         <Link to="/">Rentals Now</Link>
                     </li>
                 </ul>

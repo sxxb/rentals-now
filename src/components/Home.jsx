@@ -18,6 +18,12 @@ export default function Home() {
             </section>
             <section className="about-rentals-now">
                 <h2>About Us</h2>
+                <div className="about-line-images">
+                    <img src="../public/img/other/rn-tnt-lines.svg" alt="+" />
+                    <img src="../public/img/other/rn-noise-lines.svg" alt="+" />
+                    <img src="../public/img/other/rn-thermo-lines.svg" alt="+" />
+                    <img src="../public/img/other/rn-noise2-lines.svg" alt="+" />
+                </div>
                 <p>
                     Rentals Now is coming soon to provide you with affordable and reliable solutions for your test and measurement rental needs.
                 </p>
@@ -35,12 +41,6 @@ export default function Home() {
                 Data.map(product => (
                     <div key={product.id} id={product.productcode} className="product-listing">
                         <Link to={`/products/${product.link}`}>
-                            <div className="product-listing-image">
-                                <img
-                                key={product.imageurl}
-                                src={`../src/assets/img/products/${product.imageurl}` || null}
-                                />
-                            </div>
                             <div className="product-listing-description">
                                 <h3>
                                     {product.name}
@@ -49,6 +49,13 @@ export default function Home() {
                                     {product.descriptionS}
                                 </h4>
                             </div>
+                            <div className="product-listing-image">
+                                <img
+                                key={product.imageurl}
+                                src={`../public/img/products/${product.imageurl}` || null}
+                                />
+                            </div>
+   
                             <div className="product-listing-price">
                                 <h5>
                                     Available From 

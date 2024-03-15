@@ -5,9 +5,9 @@ export default function VideoHeader() {
         <>
             <video 
                 id="backgroundVideo" 
-                autoplay="true" 
-                loop="true" 
-                muted="true" 
+                autoPlay={true} 
+                loop={true}
+                muted={true} 
             >
                 <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4" />
                 Your browser does not support this video - sorry!
