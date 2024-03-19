@@ -4,12 +4,12 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/rentals-now/',
   plugins: [react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@': path.resolve(__dirname, 'public'),
     },
-  },
-  base: '/rentals-now/',
+  }
 })
