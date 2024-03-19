@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "https://sxxb.github.io/rentals-now/",
+  base: 'https://sxxb.github.io/rentals-now/',
   plugins: [react()],
   resolve: {
     alias: {
