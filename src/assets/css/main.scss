@@ -159,7 +159,7 @@ body {
                         }
                         .lazy-loader-cover {
                             background:rgba(0, 0, 0, 0.3);
-                            background-image: url(../public/img/other/scanlines.png);
+                            background-image: url(../img/other/scanlines.png);
                             opacity:0.4;
                             height:100%;
                             width: 100%;
@@ -199,10 +199,6 @@ body {
                         }
                     }
                     &.about-rentals-now {
-                        background-image:url(../public/img/logo/rentalsnow-disc.svg);
-                        background-position: -10%;
-                        background-repeat:no-repeat;
-                        background-size:10%;
                         .about-line-images {
                             max-width:40rem;
                             width:100%;
