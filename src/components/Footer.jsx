@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import rentalsNowLogoAlt1 from '/public/img/logo/rentals-now-alt-1-logo-text-only.svg';
 
 export default function Footer() {
     return (
@@ -7,7 +8,7 @@ export default function Footer() {
             <section className="footer-top">
                 <div className="footer-top-quarter">
                     <div className="footer-logo-container">
-                        <img src="/public/img/logo/rentals-now-alt-1-logo-text-only.svg" alt="Rentals Now" />
+                        <img src={rentalsNowLogoAlt1} alt="Rentals Now" />
                     </div> 
                 </div>
                 <div className="footer-top-quarter">

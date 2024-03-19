@@ -13,7 +13,7 @@ export default function Products() {
                             <div className="product-listing-image">
                                 <img
                                 key={product.imageurl}
-                                src={`../public/img/products/${product.imageurl}` || null}
+                                src={`/img/products/${product.imageurl}` || null}
                                 />
                             </div>
                             <div className="product-listing-description">

@@ -7,8 +7,8 @@ $rn-navy-blue: #27284D;
 $sky-blue: #80fff6;
 $gray: #757575;
 
-$title-font: "neue-haas-grotesk-display", serif;
-$body-font: "neue-haas-grotesk-text", serif;
+$title-font: "neue-haas-grotesk-display", sans-serif;
+$body-font: "neue-haas-grotesk-text", sans-serif;
 
 //css reset
 *,
@@ -84,6 +84,7 @@ body {
                 nav {
                     height:5rem;
                     flex-direction:row;
+                    padding: 0.5rem 2rem;
                     #headerLogo {
                         img {
                             height:3.5rem;

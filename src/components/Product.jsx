@@ -27,7 +27,7 @@ export default function Product() {
                 <div className="product-view-img">
                     <img
                     key={productDisplay.imageurl}
-                    src={`../public/img/products/${productDisplay.imageurl}` || null}
+                    src={`/img/products/${productDisplay.imageurl}` || null}
                     className="productImage"
                     />
                 </div>
