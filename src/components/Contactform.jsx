@@ -17,14 +17,17 @@ const validate = values => {
     } 
     if (!values.product) {
     errors.product = 'Required';
-    }   
-    if (!values.duration) {
-        errors.duration = 'Required - How long are you looking to rent this product for?';
-    } 
+    }
     if (!values.startdate) {
         errors.startdate = 'Required - When do you want to begin your rental period? If you do not have a specific date, please select the earliest date you would prefer.';
     } else if (values.startdate < new Date().toISOString().substring(0,10)) {
         errors.startdate = 'Your rental period cannot start in the past.'
+    }
+    if (!values.enddate) {
+        errors.enddate = 'Required - When do you want to end your rental period? If you are unsure, select an approximate date that reflects the length of your rental period'
+    }
+    if (!values.collection) {
+        errors.collection = 'Required - Do you want your tester to be delivered, or do you want to collect it from our Adelaide office?'
     }
     if (!values.query) {
         errors.query = 'Required';
@@ -32,16 +35,23 @@ const validate = values => {
     return errors;
   };
 
+
 export default function ContactForm({product}) {
     const formik = useFormik({
         initialValues: {
             name: "",
             business: "",
+            addressStreet: "",
+            addressSuburb: "",
+            addressState: "",
+            addressPostCode: "",
             email: "",
             mobile: "",
             product: "",
-            duration: "",
             startdate: "",
+            enddate: "",
+            collection: "",
+            
             query: ""
         },
         validate,
@@ -61,6 +71,26 @@ export default function ContactForm({product}) {
             <fieldset>
                 <label htmlFor="business">Business</label>
                 <input id="business" name="business" type="text" onChange={formik.handleChange} value={formik.values.business} onBlur={formik.handleBlur}/>
+                <div className="error-placeholder"></div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="addressStreet">Street Address</label>
+                <input id="addressStreet" name="addressStreet" type="text" onChange={formik.handleChange} value={formik.values.addressStreet} onBlur={formik.handleBlur} required/>
+                <div className="error-placeholder"></div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="addressSuburb">Suburb</label>
+                <input id="addressSuburb" name="addressSuburb" type="text" onChange={formik.handleChange} value={formik.values.address} onBlur={formik.handleBlur} required/>
+                <div className="error-placeholder"></div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="addressState">State</label>
+                <input id="addressState" name="addressState" type="text" onChange={formik.handleChange} value={formik.values.addressState} onBlur={formik.handleBlur} required/>
+                <div className="error-placeholder"></div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="addressPostCode">Post Code</label>
+                <input id="addressPostCode" name="addressPostCode" type="text" onChange={formik.handleChange} value={formik.values.addressPostCode} onBlur={formik.handleBlur} required/>
                 <div className="error-placeholder"></div>
             </fieldset>
             <fieldset>
@@ -90,24 +120,29 @@ export default function ContactForm({product}) {
                 </div>
             </fieldset>
             <fieldset>
-                <label htmlFor="duration">Rental Period</label>
-                <select id="duration" name="duration" onChange={formik.handleChange} value={formik.values.duration} onBlur={formik.handleBlur} required>
-                    <option value="">Please Select</option>
-                    <option value="Daily">Daily</option>
-                    <option value="Weekly">Weekly</option>
-                    <option value="Fortnightly">Fortnightly</option>
-                    <option value="Monthly">Monthly</option>
-                </select>
-                <div className="error-placeholder">
-                    {formik.touched.duration && formik.errors.duration ? <>{formik.errors.duration}</> : null}
-                </div>
-            </fieldset>
-            <fieldset>
                 <label htmlFor="startdate">Start Date</label>
-                <input id="startdate" name="startdate" type="date" min={new Date().toISOString().substring(0,10)} onChange={formik.handleChange} value={formik.values.startdate} onBlur={formik.handleBlur} required />
+                <input id="startdate" name="startdate" type="date" min={formik.values.startdate} onChange={formik.handleChange} value={formik.values.startdate} onBlur={formik.handleBlur} required />
                 <div className="error-placeholder">
                     {formik.touched.startdate && formik.errors.startdate ? <>{formik.errors.startdate}</> : null}
                 </div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="enddate">End Date</label>
+                <input id="enddate" name="enddate" type="date" min={new Date().toISOString().substring(0,10)} onChange={formik.handleChange} value={formik.values.enddate} onBlur={formik.handleBlur} required />
+                <div className="error-placeholder">
+                    {formik.touched.enddate && formik.errors.enddate ? <>{formik.errors.enddate}</> : null}
+                </div>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="collection">Delivery Method</label>
+                <select name="collection" id="collection" onChange={formik.handleChange} value={formik.values.collection} onBlur={formik.handleBlur} required>
+                    <option value="">Select Delivery Method</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Pickup">Pickup From Adelaide Office</option>
+                </select>
+                <div className="error-placeholder">
+                    {formik.touched.collection && formik.errors.collection ? <>{formik.errors.collection}</> : null}
+                </div>                    
             </fieldset>
             <fieldset>
                 <label htmlFor="query">What can we do for you?</label>
